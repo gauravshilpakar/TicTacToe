@@ -4,7 +4,7 @@ print('TicTacToe\n')
 # for i in range(1,10,1):
 #     board.append('')
 
-board = ['O','O','X','O','X','O','X','O','X']
+board = ['O','O','X','5','O','O','X','O','X']
 
 def display_board(board):
     print('\n')
@@ -48,13 +48,34 @@ def win_check(board, mark):
             print(f'{mark} is winner.') 
 
 def space_check(board, position):
-    
-    pass
+    x= board[position-1]
+    print(f'In board position {position} there is {x}')
+    if (board[position-1]=='X' or board[position-1]=='O'):
+        print('\nPosition is filled.')
+        return False
+    elif board[position-1]==str(position):
+        return True   
 
+def full_board_check(board):
+    count=0
+    for i in range(len(board)):
+        if (board[i]=='X' or board[i]=='O'):
+            count+=1
+            
+    if count==9:
+        print('\nBoard Full')
+        return True
+    else:
+        print('\nBoard Has Empty Space')
+        return False
+
+        
 display_board(board)
-player_input()
+# player_input()
 display_board(board)
 win_check(board,'X')
+print(space_check(board, 5))
+print(full_board_check(board))
 
 # while True:
 #     pos=''    
