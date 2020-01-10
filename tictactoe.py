@@ -1,4 +1,3 @@
-import random
 print('TicTacToe')
 
 board= []
@@ -94,4 +93,7 @@ while True:
     print(f'Player 2 {p2} Turn')
     player_choice(board,p2)
     if win_check(board,p2):
+        break
+    elif full_board_check(board):
+        print("Tie!")
         break
